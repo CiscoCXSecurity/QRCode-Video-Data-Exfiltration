@@ -3,7 +3,7 @@
 Exfiltrate data with QR code videos generated from files by HTML5/JS.
 
 ## Data => QR Code Video ##
-Host the files in the folder labled `file_to_qr` on a web server. Visit the web server. Drag and drop a file into the browser window where it says "Drop files here...". A video of QR codes should start flashing.
+Host the files in the folder labled `file_to_qr` on a web server. Visit the web server. Drag and drop a file into the browser window where it says `Drop files here...`. A video of QR codes should start flashing.
 
 Point a cellphone camera or other video capture device at the screen and record. Make sure to record until you have seen the blue flash twice. This will ensure that you have gotten all the data.
 
@@ -23,3 +23,15 @@ You should see a bunch of stuff about frames and what-not. Unless you see any er
 ## Notes ##
 
 - If you plan to use this in the wild, you might want to consider packing/obfuscating the HTML/JS used for creating the video to avoid detection.
+
+## Author ##
+
+Ben Toews (@mastahyeti)
+
+## Credits ##
+
+- Idea stolen from Scott Behrens
+- Greg Ose
+- http://www.aishack.in/2010/07/tracking-colored-objects-in-opencv/
+- http://sourceforge.net/apps/mediawiki/zbar/index.php?title=HOWTO:_Scan_images_using_the_API
+
