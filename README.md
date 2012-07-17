@@ -13,7 +13,7 @@ First you need to convert the data to something that opencv will understand. See
 
 	mencoder ./foo.mov -ovc raw -vf format=i420 -nosound -o out.avi
 
-Next, you will need to run this video through the processing script. *Remember to provide the full path to the video rather than the relative path*. Blame opencv for this, not me. This should look like:
+Next, you will need to run this video through the processing script. **Remember to provide the full path to the video rather than the relative path**. Blame opencv for this, not me. This should look like:
 
 	python ./video_processor.py /home/mastahyeti/out.avi
 
