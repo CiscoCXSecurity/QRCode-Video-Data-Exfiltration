@@ -19,6 +19,14 @@ Next, you will need to run this video through the processing script. *Remember t
 
 You should see a bunch of stuff about frames and what-not. Unless you see any errors, this ins't too important. At the end you should see your previous data. 
 
+## Dependancies ##
+pyopencv
+
+	sudo pip install pyopencv
+
+zbar
+
+	sudo pip install zbar
 
 ## Notes ##
 
