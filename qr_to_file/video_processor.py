@@ -1,13 +1,8 @@
 #!/usr/bin/python
 
 #
-# Color thresholds in OpenCV
-# http://www.aishack.in/2010/07/tracking-colored-objects-in-opencv/
-#
-# stealing the frame grabbing from http://stackoverflow.com/questions/4929721/opencv-python-grab-frames-from-a-video-file
-#
-# load an image, convert to HSV color space, and threshold the image
-# for yellow hue values 
+# file: video_processorpy
+# description: this takes a video of qr codes and extracts the file.
 #
 
 import cv
