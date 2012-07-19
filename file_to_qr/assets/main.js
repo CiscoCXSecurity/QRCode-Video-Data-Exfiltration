@@ -65,19 +65,47 @@ function showData(data,offset,depth){
     }
 }
 
+// listen for files
 dropbox.addEventListener("drop", function(evt) {
+    // stop default actions
     evt.stopPropagation();
     evt.preventDefault();
+
+    // get the files from the event
     files = evt.dataTransfer.files;
-    if (files.length > 1){
-        // todo: allow multiple files and gzip them
-        alert('I can only handle one file at a time....');
-        return 0;
+
+    // how many files were dropped
+    target_len = files.length;
+
+    // how many files have been loaded
+    current_len = 1;
+
+    // new zip container
+    zip = new JSZip();
+
+    // loop over the files
+    for (i = 0, f=''; f = files[i]; i++) {
+
+        // instantiate new FileReader
+        reader = new FileReader();
+
+        // closure to save file info
+        reader.onload = (function(f){
+            return function(e){
+
+                // add file to archive
+                zip.file(f.name,e.target.result,{binary:true});
+
+                // if this is the last file, we generate QR code
+                if ( current_len++ >= target_len ) {
+                    document.getElementById('dropbox').style.display = 'none';
+                    content = zip.generate({base64:false});
+                    showData(content,0,0);
+                }
+            }
+        })(f);
+        
+        // reader.readAsText(f);
+        reader.readAsBinaryString(f);
     }
-    reader = new FileReader();
-    reader.onload = function(e){
-        document.getElementById('dropbox').style.display = 'none';
-        showData(e.target.result,0,0);
-    }
-    reader.readAsText(files[0]);
 },false);

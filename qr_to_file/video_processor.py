@@ -201,4 +201,7 @@ if __name__ == "__main__":
 
         del(zimage)
 
-print repr(output)
+# output file
+f = open('files.zip','w')
+f.write(output)
+f.close()
