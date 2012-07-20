@@ -4,9 +4,46 @@
 		<link rel='StyleSheet' typle='text/css' href='website-assets/main.css'>
 	</head>
 	<body>
+		<h1 id="qrcode-video-data-exfiltration">QRCode-Video-Data-Exfiltration</h1>
+		<p>Exfiltrate data with QR code videos generated from files by HTML5/JS.</p>
 		<div id='dropbox' class='no_hover'><p>Drop files here...<p></div>
 		<div id='status'></div>
 		<div id='qrcode'></div>
+		<h2 id="data-qr-code-video">Data =&gt; QR Code Video</h2>
+		<p>Host the files in the folder labled <code>file_to_qr</code> on a web server. Visit the web server. Drag and drop a file into the browser window where it says <code>Drop files here...</code>. A video of QR codes should start flashing.</p>
+		<p>Point a cellphone camera or other video capture device at the screen and record. Make sure to record until you have seen the blue flash twice. This will ensure that you have gotten all the data.</p>
+		<h2 id="qr-code-video-data">QR Code Video =&gt; Data</h2>
+		<p>First you need to convert the data to something that opencv will understand. See <a href="http://opencv.willowgarage.com/wiki/VideoCodecs">this page</a> for information on compatible formats. I have found the following command to do the trick for me:</p>
+		<pre><code>mencoder ./foo.mov -ovc raw -vf format=i420 -nosound -o out.avi</code></pre>
+		<p>Next, you will need to run this video through the processing script. <strong>Remember to provide the full path to the video rather than the relative path</strong>. Blame opencv for this, not me. This should look like:</p>
+		<pre><code>python ./video_processor.py /home/mastahyeti/out.avi</code></pre>
+		<p>You should see a bunch of stuff about frames and what-not. Unless you see any errors, this ins’t too important. At the end you should see your previous data.</p>
+		<h2 id="dependancies">Python Dependancies</h2>
+		<ul>
+			<li>
+				pyopencv
+				<br>
+				<pre><code>sudo pip install pyopencv</code></pre>
+			</li>
+			<li>
+				zbar
+				<br>
+				<pre><code>sudo pip install zbar</code></pre>
+			</li>			
+		</ul>
+		<h2 id="notes">Notes</h2>
+		<ul>
+		<li>If you plan to use this in the wild, you might want to consider packing/obfuscating the HTML/JS used for creating the video to avoid detection.</li>
+		</ul>
+		<h2 id="author">Author</h2>
+		<p>Ben Toews (@mastahyeti)</p>
+		<h2 id="credits">Credits</h2>
+		<ul>
+		<li>Idea stolen from Scott Behrens</li>
+		<li>Greg Ose</li>
+		<li>http://www.aishack.in/2010/07/tracking-colored-objects-in-opencv/</li>
+		<li>http://sourceforge.net/apps/mediawiki/zbar/index.php?title=HOWTO:_Scan_images_using_the_API</li>
+		</ul>
 		<script type='text/javascript' src='website-assets/jszip.js'></script>		
 		<script type='text/javascript' src='website-assets/qr.js'></script>
 		<script type='text/javascript' src='website-assets/main.js'></script>
