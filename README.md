@@ -38,7 +38,7 @@ Ben Toews (@mastahyeti)
 
 ## Credits ##
 
-- Idea stolen from Scott Behrens
+- Idea stolen from Michael Pearce
 - Greg Ose
 - http://www.aishack.in/2010/07/tracking-colored-objects-in-opencv/
 - http://sourceforge.net/apps/mediawiki/zbar/index.php?title=HOWTO:_Scan_images_using_the_API
