@@ -65,6 +65,10 @@ function showData(data,offset,depth){
     }
 }
 
+document.addEventListener('dragover', (e) => {
+    e.preventDefault();
+});
+
 // listen for files
 dropbox.addEventListener("drop", function(evt) {
     // stop default actions
